@@ -14,6 +14,195 @@ background-repeat:no-repeat;
 background-attachment: fixed;
 background-size: cover; 
 }
+* {
+  box-sizing: border-box;
+}
+body {
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body.light-mode {
+  font-family: Arial;
+  padding: 10px;
+  background: #32c4f9;
+  color: black;
+}
+
+body.dark-mode {
+      font-family: Arial;
+  padding: 10px;
+  background-color: black;
+  color: white;
+}
+body.light-mode .card {
+  background-color: #fe7362;
+  padding: 7px 10px;
+  margin-top: 3px;
+  border: 2px solid #f3ce73;
+
+}
+
+body.dark-mode .card {
+  background-color: black;
+  padding: 7px 10px;
+  margin-top: 3px;
+  border: 2px solid whitesmoke;
+}
+body.light-mode .header {
+  padding: 10px;
+  background: #fe7362;
+
+}
+
+body.dark-mode .header {
+  background-color: rgb(142, 160, 166);;
+  padding:10px;
+}
+  /* Create two columns/boxes that floats next to each other */
+  nav {
+    float: left;
+    width: 30%;
+    height: 1500px; /* only for demonstration, should be removed */
+    background: #fe7362;
+    padding: 20px;
+  }
+  
+  /* Style the list inside the menu */
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  vertical-menu {
+  width: 100%;
+}
+
+.vertical-menu a {
+  color: #f3ce73;
+  display: block;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #32c4f9;
+}
+
+  article {
+    float: left;
+    padding: 20px;
+    width: 70%;
+    background-color: #f3ce73;
+    height: 1500px; /* only for demonstration, should be removed */
+  }
+  
+  /* Clear floats after the columns */
+  section::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the footer */
+  footer {
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
+  
+  /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+  @media (max-width: 600px) {
+    nav, article {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .column-1-left{
+    width: 66%;
+    float: left;
+    padding: 7px 10px;
+    margin-top: 3px;
+  }
+
+  .column-1-right{
+    width: 33%;
+    float: left;
+    padding: 7px 10px;
+    margin-top: 3px;
+  }
+  .column {
+    float: left;
+    padding: 7px 10px;
+    margin-top: 3px;
+  }
+  div.card:hover {
+    border: 4px solid #32c4f9;
+  }
+  .active{
+    background-color: #2decb7;
+  }
+  .header-row{
+    float: left;
+    padding: 7px 10px;
+    margin-top: 3px;
+    width: 100%;
+    background-color: #fe7362;
+    border-color: #f3ce73;
+    border: 2px solid #fe7362;
+  }
+  .game {
+    float: left;
+    width: 25%;
+    background-color: #79ceea;
+    padding: 7px 10px;
+    margin-top: 3px;
+  }
+  .game-left{
+    width: 33%;
+    float: left;
+    padding: 7px 10px;
+    margin-top: 3px;
+  }
+
+
+.popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #f3ce73;
+    color: #fe7362;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #32c4f9;
+}
 
 body::-webkit-scrollbar {
  display: none;
@@ -43,6 +232,11 @@ font-size:0.25em;
 
 .blueContainer {
 background-color:#79ceea;
+text-align:center; 
+border-radius: 10px;
+}
+.dark-mode .blueContainer {
+background-color:#393939;
 text-align:center; 
 border-radius: 10px;
 }
@@ -272,6 +466,7 @@ function startSearch() {
   <h1 class="game-title">Others</h1> 	
   </div>
   </a>
+
   
   <a href="suggestions.html"class="game-link container">	
   <div class="game-tile">	
@@ -306,9 +501,10 @@ function startSearch() {
 </div>
   
 </div>
+
   </section>
    </div>  
-
+<br>
 <div class='chat'><h3 style="color:gold">NEW</h3><h3 style="color:purple">VISIT US ON SHOTGUNSHELLY.COM</h3><h3>mountain658's email: mountaingames658@zohomail.com</h3><p>Cool! I'll <a target="_blank" href="mailto:mountaingames658@zohomail.com?subject=hi">Send Them An Email</a></p></div>
 
 <br>
@@ -342,6 +538,13 @@ function startSearch() {
 <script src='https://unpkg.com/intro.js/minified/intro.min.js'></script>
 <script src='jelly.js'></script>
 <script>
+function myFunction1() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+<script>
+
 function getTopDomain(domain) {
   const topDomainExpression = /\w+((\.[a-z]{2,3})(\.(ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bl|bm|bn|bo|bq|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cr|cu|cv|cw|cx|cy|cz|de|dj|dk|dm|do|dz|ec|ee|eg|er|es|et|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|me|mf|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|nz|om|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|sk|sl|sm|sn|so|sr|ss|st|sv|sx|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tr|tt|tv|tw|tz|ua|ug|uk|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|za|zm|zw))?)$/i;
   const match = topDomainExpression.exec(domain);
@@ -936,5 +1139,271 @@ displayGames();
 startSite();
 hehehe();
 </script>
+<div class="row">
+  <div class="game">
+    <a href="/bitlife/bitlife.html">
+        <img src="https://games-cdn.madebydanny.uk/OIP.jfif" alt="BitLife" style="width:100%;height:350px;">
+        </a>
+    <h1>BitLife</h1>
+  </div>
+ <div class="game">
+    <a href="/slope-2/index.html">
+        <img src="https://games-cdn.madebydanny.uk/download%20(2).jfif" alt="slope-2" style="width:100%;height:350px;">
+        </a>
+    <h1>Slope 2</h1>
+ </div>
+ <div class="game">
+   <a href="/1v1lol/index.html">
+       <img src="https://games-cdn.madebydanny.uk/1OIP.jfif" alt="1v1lol" style="width:100%;height:350px;">
+       </a>
+   <h1>1v1lol</h1>
+ </div>
+ <div class="game">
+  <a href="/2048/index.html">
+      <img src="https://games-cdn.madebydanny.uk/OIP2.jfif" alt="BitLife" style="width:100%;height:350px;">
+      </a>
+  <h1>2048</h1>
+</div>
+<div class="game">
+  <a href="/cookie-clicker/index.html">
+      <img src="https://games-cdn.madebydanny.uk/OIP4.jfif" alt="cookie-clicker" style="width:100%;height:350px;">
+      </a>
+  <h1>Cookie Clicker</h1>
+</div>
+<div class="game">
+ <a href="/cut-the-rope/">
+     <img src="https://games-cdn.madebydanny.uk/download.jfif" alt="cut-the-rope" style="width:100%;height:350px;">
+     </a>
+ <h1>Cut The Rope</h1>
+</div>
+<div class="game">
+<a href="/drift-boss/index.html">
+    <img src="https://games-cdn.madebydanny.uk/download%20(1).jfif" alt="drift-boss" style="width:100%;height:350px;">
+    </a>
+<h1>Drift Boss</h1>
+</div>
+<div class="game">
+<a href="/retrobowl/index.html">
+    <img src="https://games-cdn.madebydanny.uk/OIP3.jfif" alt="retrobowl" style="width:100%;height:350px;">
+    </a>
+<h1>Retrobowl</h1>
+</div>
+<div class="game">
+<a href="/monkey-mart/index.html">
+   <img src="https://games-cdn.madebydanny.uk/OIP%20(2).jfif" alt="monkey-mart" style="width:100%;height:350px;">
+   </a>
+<h1>Monkey Mart</h1>
+</div>
+<div class="game">
+<a href="/Snow-Rider3D/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(1).jfif" alt="Snow-Rider3D" style="width:100%;height:350px;">
+  </a>
+<h1>Snow Rider</h1>
+</div>
+<div class="game">
+<a href="/subway-surfers/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OI1P.jfif" alt="subway Surfers" style="width:100%;height:350px;">
+  </a>
+<h1>Subway Surfers</h1>
+</div>
+<div class="game">
+<a href="/slope/index.html">
+ <img src="https://games-cdn.madebydanny.uk/download%20(2).jfif" alt="Slope" style="width:100%;height:350px;">
+ </a>
+<h1>Slope</h1>
+</div>
+<div class="game">
+<a href="/stickman-hook/">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(3).jfif" alt="stickman-hook" style="width:100%;height:350px;">
+  </a>
+<h1>Stick Man Hook</h1>
+</div>
+<div class="game">
+<a href="/tiny-fishing/index.html">
+  <img src="https://games-cdn.madebydanny.uk/download%20(3).jfif" alt="tiny-fishing" style="width:100%;height:350px;">
+  </a>
+<h1>Tiny Fishing</h1>
+</div>
+<div class="game">
+<a href="/territorial.io/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(4).jfif" alt="territorial" style="width:100%;height:350px;">
+  </a>
+<h1>Territorial</h1>
+</div>
+<div class="game">
+<a href="/theimpossiblequiz/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(5).jfif" alt="theimpossiblequiz" style="width:100%;height:350px;">
+  </a>
+<h1>The Impossible Quiz</h1>
+</div>
+<div class="game">
+<a href="/theimpossiblequiz2/index.html">
+ <img src="https://games-cdn.madebydanny.uk/OIP%20(5).jfif" alt="theimpossiblequiz2" style="width:100%;height:350px;">
+ </a>
+<h1>The Impossible Quiz 2</h1>
+</div>
+<div class="game">
+<a href="/Subway-Surfer-Beijing/index.html">
+<img src="https://games-cdn.madebydanny.uk/OI1P.jfif" alt="Subway-Surfer-Beijing" style="width:100%;height:350px;">
+</a>
+<h1>Subway Surfer Beijing</h1>
+</div>
+<div class="game">
+<a href="/run3/index.html">
+<img src="https://games-cdn.madebydanny.uk/OIP%20(6).jfif" alt="run3" style="width:100%;height:350px;">
+</a>
+<h1>Run 3</h1>
+</div>
+<div class="game">
+<a href="/Rocket-League/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(7).jfif" alt="Rocket-League" style="width:100%;height:350px;">
+  </a>
+<h1>Rocket League</h1>
+</div>
+<div class="game">
+<a href="/paperio2/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(8).jfif" alt="paperio2" style="width:100%;height:350px;">
+  </a>
+<h1>Paprer.io 2</h1>
+</div>
+<div class="game">
+<a href="/vex7/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(9).jfif" alt="vex7" style="width:100%;height:350px;">
+  </a>
+<h1>Vex 7</h1>
+</div>
+<div class="game">
+<a href="/ages-of-conflict/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(10).jfif" alt="ages-of-conflict" style="width:100%;height:350px;">
+  </a>
+<h1>Ages Of Conflict</h1>
+</div>
+<div class="game">
+<a href="/angrybirds/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(11).jfif" alt="Rocket-League" style="width:100%;height:350px;">
+  </a>
+<h1>Angry Birds</h1>
+</div>
+<div class="game">
+<a href="/vex6/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(12).jfif" alt="vex6" style="width:100%;height:350px;">
+  </a>
+<h1>Vex 6</h1>
+</div>
+<div class="game">
+<a href="/vex5/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(13).jfif" alt="vex 5" style="width:100%;height:350px;">
+  </a>
+<h1>Vex 5</h1>
+</div>
+<div class="game">
+<a href="/vex4/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(14).jfif" alt="vex 4" style="width:100%;height:350px;">
+  </a>
+<h1>Vex 4</h1>
+</div>
+<div class="game">
+<a href="/vex3/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(15).jfif" alt="vex 3" style="width:100%;height:350px;">
+  </a>
+<h1>Vex 3</h1>
+</div>
+<div class="game">
+<a href="/vex2/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(16).jfif" alt="vex 2" style="width:100%;height:350px;">
+  </a>
+<h1>Vex 2</h1>
+</div>
+<div class="game">
+<a href="/vex2/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(17).jfif" alt="vex" style="width:100%;height:350px;">
+  </a>
+<h1>Vex</h1>
+</div>
+<div class="game">
+<a href="/wordle/index.html">
+  <img src="https://games-cdn.madebydanny.uk/download%20(4).jfif" alt="wordle" style="width:100%;height:350px;">
+  </a>
+<h1>Wordle</h1>
+</div>
+<div class="game">
+<a href="/snake/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(18).jfif" alt="snake" style="width:100%;height:350px;">
+  </a>
+<h1>Snake</h1>
+</div>
+<div class="game">
+<a href="ducklife/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(19).jfif" alt="ducklife" style="width:100%;height:250px;">
+  </a>
+<h1>Ducklife</h1>
+</div>
+<div class="game">
+<a href="/ducklife2/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(19).jfif" alt="ducklife2" style="width:100%;height:250px;">
+  </a>
+<h1>Ducklife 2</h1>
+</div>
+<div class="game">
+<a href="ducklife3/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(19).jfif" alt="ducklife3" style="width:100%;height:250px;">
+  </a>
+<h1>Ducklife 3 </h1>
+</div>
+<div class="game">
+<a href="ducklife4/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(19).jfif" alt="ducklife4" style="width:100%;height:250px;">
+  </a>
+<h1>Ducklife 4</h1>
+</div>
+<div class="game">
+<a href="ducklife5/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(19).jfif" alt="ducklife5" style="width:100%;height:250px;">
+  </a>
+<h1>Ducklife 5</h1>
+</div>
+<div class="game">
+<a href="ducklife6/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(19).jfif" alt="ducklife6" style="width:100%;height:250px;">
+  </a>
+<h1>Ducklife 6</h1>
+</div>
+<div class="game">
+<a href="/pacman/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(21).jfif" alt="pacman" style="width:100%;height:250px;">
+  </a>
+<h1>Pacman</h1>
+</div>
+<div class="game">
+<a href="/fnaf/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(22).jfif" alt="pacman" style="width:100%;height:250px;">
+  </a>
+<h1>FNAF</h1>
+</div>
+<div class="game">
+<a href="/fnaf-2/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(22).jfif" alt="pacman" style="width:100%;height:250px;">
+  </a>
+<h1>FNAF 2</h1>
+</div>
+<div class="game">
+<a href="/fnaf-3/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(22).jfif" alt="pacman" style="width:100%;height:250px;">
+  </a>
+<h1>FNAF 3</h1>
+</div>
+<div class="game">
+<a href="/fnaf-4/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(22).jfif" alt="pacman" style="width:100%;height:250px;">
+  </a>
+<h1>FANF 4</h1>
+</div>
+<div class="game">
+<a href="/dinogame/index.html">
+  <img src="https://games-cdn.madebydanny.uk/OIP%20(23).jfif" alt="Dino" style="width:100%;height:250px;">
+  </a>
+<h1>Dino Games</h1>
+</div>
+
 </body>
 </html>
